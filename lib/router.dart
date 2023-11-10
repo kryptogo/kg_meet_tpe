@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kg_meet_tpe/generate_result_screen.dart';
-import 'package:kg_meet_tpe/generate_wallet_screen.dart';
+import 'package:kg_meet_tpe/presentation/generate_result_screen.dart';
+import 'package:kg_meet_tpe/presentation/generate_wallet_screen.dart';
 
 part 'router.g.dart';
 

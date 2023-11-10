@@ -4,6 +4,9 @@ import 'dart:math';
 import 'dart:ui_web';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kg_meet_tpe/presentation/generate_result_screen.dart';
+import 'package:kg_meet_tpe/router.dart';
 
 class GenerateWalletScreen extends StatefulWidget {
   const GenerateWalletScreen({super.key});
@@ -35,7 +38,10 @@ class _GenerateWalletScreenState extends State<GenerateWalletScreen> {
 
     iframe = IFrameElement()
       ..src = 'https://t42ji2ji.github.io/birthday_address/'
-      ..style.border = 'none';
+      ..style.border = 'none'..onLoad.listen((event) {
+        print('iframe loaded');
+        context.go(GenerateResultRoute().location);
+      });
     // ignore: undefined_prefixed_name
     platformViewRegistry.registerViewFactory(
         createdViewId, (int viewId) => iframe);
