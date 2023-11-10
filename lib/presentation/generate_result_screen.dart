@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 
 class GenerateResultScreen extends StatefulWidget {
-  const GenerateResultScreen({super.key});
+  const GenerateResultScreen({super.key, required this.resultInfo});
+
+  final GenerateResultInfo resultInfo;
 
   @override
   State<GenerateResultScreen> createState() => _GenerateResultScreenState();
 }
 
 class _GenerateResultScreenState extends State<GenerateResultScreen> {
-  final fakeInfo = const GenerateResultInfo(
-      name: 'Alice',
-      birthday: '05/01',
-      address: '0xdsdsdsdd',
-      privateKey: '1223');
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Row(
-      children: [
-        ResultInfoView(info: fakeInfo)
-      ],
-    ));
+    return Material(
+      color:Colors.green,
+      child: Scaffold(body: Row(
+        children: [
+          ResultInfoView(info: widget.resultInfo)
+        ],
+      )),
+    );
   }
 }
 
@@ -40,7 +40,7 @@ class ResultInfoView extends StatelessWidget {
       child: Column(
         children: [
           Text(info.name),
-          Text(info.birthday),
+          Text(info.birth),
           Text(info.address),
           Text(info.privateKey),
         ],

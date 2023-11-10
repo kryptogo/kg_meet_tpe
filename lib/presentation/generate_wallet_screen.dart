@@ -5,6 +5,7 @@ import 'dart:ui_web';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 import 'package:kg_meet_tpe/presentation/generate_result_screen.dart';
 import 'package:kg_meet_tpe/router.dart';
 
@@ -34,27 +35,23 @@ class _GenerateWalletScreenState extends State<GenerateWalletScreen> {
   }
 
   Future<bool> _loadHtml() async {
-    addJSListener();
+    window.onMessage.listen((event) {
+      final origin = event.origin;
+      if (origin == 'https://t42ji2ji.github.io') {
+        final result =
+            GenerateResultInfo.fromJson(event.data.cast<String, dynamic>());
+        context.go(GenerateResultRoute().location, extra: result);
+      }
+    });
 
     iframe = IFrameElement()
       ..src = 'https://t42ji2ji.github.io/birthday_address/'
-      ..style.border = 'none'..onLoad.listen((event) {
-        print('iframe loaded');
-        context.go(GenerateResultRoute().location);
-      });
+      ..style.border = 'none';
     // ignore: undefined_prefixed_name
     platformViewRegistry.registerViewFactory(
         createdViewId, (int viewId) => iframe);
 
     return true;
-  }
-
-  void addJSListener() {
-    window.onMessage.listen((event) {
-      var data = json.decode(event.data);
-      final origin = event.origin;
-      //todo check origin
-    });
   }
 
   @override

@@ -14,13 +14,18 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+GenerateResultInfo _$GenerateResultInfoFromJson(Map<String, dynamic> json) {
+  return _GenerateResultInfo.fromJson(json);
+}
+
 /// @nodoc
 mixin _$GenerateResultInfo {
   String get name => throw _privateConstructorUsedError;
-  String get birthday => throw _privateConstructorUsedError;
+  String get birth => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get privateKey => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GenerateResultInfoCopyWith<GenerateResultInfo> get copyWith =>
       throw _privateConstructorUsedError;
@@ -32,7 +37,7 @@ abstract class $GenerateResultInfoCopyWith<$Res> {
           GenerateResultInfo value, $Res Function(GenerateResultInfo) then) =
       _$GenerateResultInfoCopyWithImpl<$Res, GenerateResultInfo>;
   @useResult
-  $Res call({String name, String birthday, String address, String privateKey});
+  $Res call({String name, String birth, String address, String privateKey});
 }
 
 /// @nodoc
@@ -49,7 +54,7 @@ class _$GenerateResultInfoCopyWithImpl<$Res, $Val extends GenerateResultInfo>
   @override
   $Res call({
     Object? name = null,
-    Object? birthday = null,
+    Object? birth = null,
     Object? address = null,
     Object? privateKey = null,
   }) {
@@ -58,9 +63,9 @@ class _$GenerateResultInfoCopyWithImpl<$Res, $Val extends GenerateResultInfo>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      birthday: null == birthday
-          ? _value.birthday
-          : birthday // ignore: cast_nullable_to_non_nullable
+      birth: null == birth
+          ? _value.birth
+          : birth // ignore: cast_nullable_to_non_nullable
               as String,
       address: null == address
           ? _value.address
@@ -82,7 +87,7 @@ abstract class _$$GenerateResultInfoImplCopyWith<$Res>
       __$$GenerateResultInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String birthday, String address, String privateKey});
+  $Res call({String name, String birth, String address, String privateKey});
 }
 
 /// @nodoc
@@ -97,7 +102,7 @@ class __$$GenerateResultInfoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? birthday = null,
+    Object? birth = null,
     Object? address = null,
     Object? privateKey = null,
   }) {
@@ -106,9 +111,9 @@ class __$$GenerateResultInfoImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      birthday: null == birthday
-          ? _value.birthday
-          : birthday // ignore: cast_nullable_to_non_nullable
+      birth: null == birth
+          ? _value.birth
+          : birth // ignore: cast_nullable_to_non_nullable
               as String,
       address: null == address
           ? _value.address
@@ -123,18 +128,21 @@ class __$$GenerateResultInfoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$GenerateResultInfoImpl implements _GenerateResultInfo {
   const _$GenerateResultInfoImpl(
       {required this.name,
-      required this.birthday,
+      required this.birth,
       required this.address,
       required this.privateKey});
+
+  factory _$GenerateResultInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GenerateResultInfoImplFromJson(json);
 
   @override
   final String name;
   @override
-  final String birthday;
+  final String birth;
   @override
   final String address;
   @override
@@ -142,7 +150,7 @@ class _$GenerateResultInfoImpl implements _GenerateResultInfo {
 
   @override
   String toString() {
-    return 'GenerateResultInfo(name: $name, birthday: $birthday, address: $address, privateKey: $privateKey)';
+    return 'GenerateResultInfo(name: $name, birth: $birth, address: $address, privateKey: $privateKey)';
   }
 
   @override
@@ -151,16 +159,16 @@ class _$GenerateResultInfoImpl implements _GenerateResultInfo {
         (other.runtimeType == runtimeType &&
             other is _$GenerateResultInfoImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.birthday, birthday) ||
-                other.birthday == birthday) &&
+            (identical(other.birth, birth) || other.birth == birth) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.privateKey, privateKey) ||
                 other.privateKey == privateKey));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, birthday, address, privateKey);
+      Object.hash(runtimeType, name, birth, address, privateKey);
 
   @JsonKey(ignore: true)
   @override
@@ -168,19 +176,29 @@ class _$GenerateResultInfoImpl implements _GenerateResultInfo {
   _$$GenerateResultInfoImplCopyWith<_$GenerateResultInfoImpl> get copyWith =>
       __$$GenerateResultInfoImplCopyWithImpl<_$GenerateResultInfoImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GenerateResultInfoImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _GenerateResultInfo implements GenerateResultInfo {
   const factory _GenerateResultInfo(
       {required final String name,
-      required final String birthday,
+      required final String birth,
       required final String address,
       required final String privateKey}) = _$GenerateResultInfoImpl;
+
+  factory _GenerateResultInfo.fromJson(Map<String, dynamic> json) =
+      _$GenerateResultInfoImpl.fromJson;
 
   @override
   String get name;
   @override
-  String get birthday;
+  String get birth;
   @override
   String get address;
   @override
