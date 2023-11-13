@@ -1,11 +1,12 @@
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/router.dart' as router;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(const KgKit(child: MyApp()));
 }
 
 final _router = GoRouter(
@@ -19,19 +20,18 @@ final _router = GoRouter(
   ],
 );
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return KgMaterialApp.router(
       title: 'KryptoGO Meet Taipei',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       routerConfig: _router,
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('zh', 'TW'),
+      ],
     );
   }
 }
-

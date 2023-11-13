@@ -6,7 +6,6 @@ import 'dart:ui_web';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
-import 'package:kg_meet_tpe/presentation/generate_result_screen.dart';
 import 'package:kg_meet_tpe/router.dart';
 
 class GenerateWalletScreen extends StatefulWidget {

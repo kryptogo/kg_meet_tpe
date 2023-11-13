@@ -129,12 +129,13 @@ class __$$GenerateResultInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GenerateResultInfoImpl implements _GenerateResultInfo {
+class _$GenerateResultInfoImpl extends _GenerateResultInfo {
   const _$GenerateResultInfoImpl(
       {required this.name,
       required this.birth,
       required this.address,
-      required this.privateKey});
+      required this.privateKey})
+      : super._();
 
   factory _$GenerateResultInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$GenerateResultInfoImplFromJson(json);
@@ -185,12 +186,13 @@ class _$GenerateResultInfoImpl implements _GenerateResultInfo {
   }
 }
 
-abstract class _GenerateResultInfo implements GenerateResultInfo {
+abstract class _GenerateResultInfo extends GenerateResultInfo {
   const factory _GenerateResultInfo(
       {required final String name,
       required final String birth,
       required final String address,
       required final String privateKey}) = _$GenerateResultInfoImpl;
+  const _GenerateResultInfo._() : super._();
 
   factory _GenerateResultInfo.fromJson(Map<String, dynamic> json) =
       _$GenerateResultInfoImpl.fromJson;
