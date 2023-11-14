@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 import 'package:kg_meet_tpe/generated/assets.gen.dart';
@@ -14,9 +13,8 @@ class SoulImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height =
-        isPreview ? ScreenUtil().setHeight(248) : context.height * 0.75;
-    final width = isPreview ? ScreenUtil().setWidth(140) : height * 9 / 16;
+    final height = (isPreview ? 248 : context.height * 0.75).toDouble();
+    final width = (isPreview ? 140 : height * 9 / 16).toDouble();
     return Container(
       width: width,
       height: height,
@@ -68,7 +66,7 @@ class _ImageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(ScreenUtil().setSp(isPreview ? 6 : 14)),
+      padding: EdgeInsets.all(isPreview ? 6 : 14),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           context.themeExtension.primary.withOpacity(0.5),
@@ -85,15 +83,15 @@ class _ImageHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('生成你的Web3靈魂錢包 >> ',
-                  style: context.themeExtension.bodyText1Contrast.copyWith(
-                      fontSize: ScreenUtil().setSp(isPreview ? 5 : 12))),
+                  style: context.themeExtension.bodyText1Contrast
+                      .copyWith(fontSize: isPreview ? 5 : 12)),
               Container(
                   color: Colors.white,
                   padding: const EdgeInsets.all(2),
                   child: QrImageView(
                     padding: EdgeInsets.zero,
                     data: 'kryptogoSoulWallet', //todo alice
-                    size: ScreenUtil().setWidth(isPreview ? 24 : 36),
+                    size: isPreview ? 24 : 36,
                   ))
             ],
           )
@@ -112,7 +110,7 @@ class _ImageFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(ScreenUtil().setSp(isPreview ? 6 : 14)),
+      padding: EdgeInsets.all(isPreview ? 6 : 14),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           Colors.transparent,
@@ -122,44 +120,51 @@ class _ImageFooter extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Flexible(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text.rich(TextSpan(
                     text: info.name,
                     style: context.themeExtension.bodyText1BoldContrast
-                        .copyWith(
-                            fontSize: ScreenUtil().setSp(isPreview ? 13 : 30)),
+                        .copyWith(fontSize: isPreview ? 13 : 30),
                     children: [
                       TextSpan(
                           text: '  的靈魂錢包',
                           style: context.themeExtension.bodyText1BoldContrast
-                              .copyWith(
-                                  fontSize:
-                                      ScreenUtil().setSp(isPreview ? 5 : 12)))
+                              .copyWith(fontSize: isPreview ? 5 : 12))
                     ])),
                 const SizedBox(height: 2),
                 Text(info.address.toFormattedAddress(),
                     style: context.themeExtension.bodyText1Bold.copyWith(
                         color: context.themeExtension.secondary,
-                        fontSize: ScreenUtil().setSp(isPreview ? 13 : 30))),
+                        fontSize: isPreview ? 13 : 30)),
                 const SizedBox(height: 2),
                 Text(info.address,
-                    style: context.themeExtension.bodyText2Contrast.copyWith(
-                        fontSize: ScreenUtil().setSp(isPreview ? 5 : 9))),
+                    style: context.themeExtension.bodyText2Contrast
+                        .copyWith(fontSize: isPreview ? 5 : 9)),
               ],
             ),
           ),
           w4,
-          Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(isPreview ? 4 : 2),
-              child: QrImageView(
-                padding: EdgeInsets.zero,
-                data: info.address,
-                size: ScreenUtil().setWidth(isPreview ? 24 : 56),
-              ))
+          Column(
+            children: [
+              Text('掃描轉帳給我',
+                  style: context.themeExtension.bodyText1Contrast
+                      .copyWith(fontSize: isPreview ? 4 : 9)),
+              Assets.iconArrow
+                  .svg(width: isPreview ? 4 : 9, height: isPreview ? 2 : 4.5),
+              h4,
+              Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.all(isPreview ? 4 : 2),
+                  child: QrImageView(
+                    padding: EdgeInsets.zero,
+                    data: info.address,
+                    size: isPreview ? 24 : 56,
+                  )),
+            ],
+          )
         ],
       ),
     );

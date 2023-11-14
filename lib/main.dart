@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/router.dart' as router;
@@ -25,20 +24,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: const Size(1440, 760),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        // Use builder only if you need to use library outside ScreenUtilInit context
-        builder: (_, child) {
-          return KgMaterialApp.router(
-            title: 'KryptoGO Meet Taipei',
-            routerConfig: _router,
-            supportedLocales: const [
-              Locale('en', 'US'),
-              Locale('zh', 'TW'),
-            ],
-          );
-        });
+    return KgMaterialApp.router(
+      title: 'KryptoGO Meet Taipei',
+      routerConfig: _router,
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('zh', 'TW'),
+      ],
+    );
   }
 }

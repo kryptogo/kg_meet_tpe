@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
-import 'package:kg_meet_tpe/presentation/widgets/dialog_soul_image_download.dart';
+import 'package:kg_meet_tpe/presentation/widgets/base_card.dart';
+import 'package:kg_meet_tpe/presentation/dialog/dialog_soul_image_download.dart';
 import 'package:kg_meet_tpe/presentation/widgets/soul_image_view.dart';
 
 class SoulInfoCard extends StatelessWidget {
@@ -13,66 +15,62 @@ class SoulInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return KgCard(
-        color: Colors.transparent,
-        borderColor: context.themeExtension.secondary,
-        padding: pd24,
-        child: Row(
+    return BaseCard(
+      children: [
+        Flexible(
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Row(
-                  children: [
-                    _SoulTag(
-                        title: '靈魂數字',
-                        content: info.soulInfo.soulNumber.toString()),
-                    w24,
-                    const SlashDivider(),
-                    w24,
-                    _SoulTag(title: '靈魂色彩', content: info.soulInfo.soulColor),
-                    w24,
-                    const SlashDivider(),
-                    w24,
-                    _SoulTag(title: '靈魂水晶', content: info.soulInfo.crystal),
-                  ],
+                _SoulTag(
+                  title: '靈魂數字',
+                  content: info.soulInfo.soulNumber.toString(),
                 ),
-                h24,
-                Text(
-                  '特質',
-                  style: context.themeExtension.bodyText2Contrast,
-                ),
-                h8,
-                Text(
-                  info.soulInfo.keyword,
-                  style: context.themeExtension.headline1
-                      .copyWith(color: context.themeExtension.secondary),
-                ),
-                h8,
-                Text(
-                  info.soulInfo.soulCharacter,
-                  style: context.themeExtension.bodyText2Contrast,
-                ),
-                h24,
-                KgButton(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 14),
-                    backgroundColor: Colors.white,
-                    textStyle: context.themeExtension.bodyText1.copyWith(
-                        color: context.colors.primary,
-                        fontWeight: FontWeight.w600),
-                    label: '下載圖片',
-                    onTap: () async {
-                      SoulImageDownloadDialog.show(context, info);
-                    }),
+                w24,
+                const SlashDivider(),
+                w24,
+                _SoulTag(title: '靈魂色彩', content: info.soulInfo.soulColor),
+                w24,
+                const SlashDivider(),
+                w24,
+                _SoulTag(title: '靈魂水晶', content: info.soulInfo.crystal),
               ],
-            )),
-            w24,
-            SoulImageView(info: info, isPreview: true),
+            ),
+            h24,
+            Text(
+              '特質',
+              style: context.themeExtension.bodyText2Contrast,
+            ),
+            h8,
+            Text(
+              info.soulInfo.keyword,
+              style: context.themeExtension.headline1
+                  .copyWith(color: context.themeExtension.secondary),
+            ),
+            h8,
+            Text(
+              info.soulInfo.soulCharacter,
+              style: context.themeExtension.bodyText2Contrast,
+            ),
+            h24,
+            KgButton(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                backgroundColor: Colors.white,
+                textStyle: context.themeExtension.bodyText1.copyWith(
+                    color: context.colors.primary, fontWeight: FontWeight.w600),
+                label: '下載圖片',
+                onTap: () async {
+                  SoulImageDownloadDialog.show(context, info);
+                }),
           ],
-        ));
+        )),
+        context.isMobile ? h24 : w24,
+        SoulImageView(info: info, isPreview: true),
+      ],
+    );
   }
 }
 
@@ -92,7 +90,7 @@ class _SoulTag extends StatelessWidget {
           style: context.themeExtension.bodyText2Contrast,
         ),
         h8,
-        Text(
+        AutoSizeText(
           content,
           style: context.themeExtension.headline1
               .copyWith(color: context.themeExtension.secondary),

@@ -18,6 +18,9 @@ class Assets {
   static const AssetGenImage googleDownloadButton =
       AssetGenImage('assets/google_download_button.png');
 
+  /// File path: assets/icon_arrow.svg
+  static const SvgGenImage iconArrow = SvgGenImage('assets/icon_arrow.svg');
+
   /// File path: assets/icon_back.svg
   static const SvgGenImage iconBack = SvgGenImage('assets/icon_back.svg');
 
@@ -64,6 +67,7 @@ class Assets {
   /// List of all assets
   List<dynamic> get values => [
         googleDownloadButton,
+        iconArrow,
         iconBack,
         iconCopy,
         iconLock,

@@ -22,7 +22,7 @@ class GenerateResultInfo with _$GenerateResultInfo {
 
   int get soulNumber {
     final birthDate = DateTime.parse(birth);
-    var birthList = [birthDate.day, birthDate.month];
+    var birthList = [birthDate.year, birthDate.day, birthDate.month];
     while (birthList.length > 1) {
       birthList = birthList
           .fold(0, (sum, digit) => sum + digit)
@@ -38,27 +38,21 @@ class GenerateResultInfo with _$GenerateResultInfo {
 
   String get hex {
     final encodeInfo = copyWith(privateKey: null);
-    // Serialize the object to JSON
     String jsonString = jsonEncode(encodeInfo.toJson());
 
-    // Convert JSON string to bytes
     List<int> bytes = utf8.encode(jsonString);
 
-    // Convert bytes to a hex string
     return bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
   }
 
   factory GenerateResultInfo.fromHex(String hex) {
-// Convert hex string to bytes
     Uint8List bytes = Uint8List.fromList(List<int>.generate(
       hex.length ~/ 2,
       (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16),
     ));
 
-    // Convert bytes to JSON string
     String jsonString = utf8.decode(bytes);
 
-    // Deserialize JSON to GenerateResultInfo object
     return GenerateResultInfo.fromJson(jsonDecode(jsonString));
   }
 
