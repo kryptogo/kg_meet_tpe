@@ -18,55 +18,60 @@ class SoulInfoCard extends StatelessWidget {
     return BaseCard(
       children: [
         Flexible(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                _SoulTag(
-                  title: '靈魂數字',
-                  content: info.soulInfo.soulNumber.toString(),
-                ),
-                w24,
-                const SlashDivider(),
-                w24,
-                _SoulTag(title: '靈魂色彩', content: info.soulInfo.soulColor),
-                w24,
-                const SlashDivider(),
-                w24,
-                _SoulTag(title: '靈魂水晶', content: info.soulInfo.crystal),
-              ],
-            ),
-            h24,
-            Text(
-              '特質',
-              style: context.themeExtension.bodyText2Contrast,
-            ),
-            h8,
-            Text(
-              info.soulInfo.keyword,
-              style: context.themeExtension.headline1
-                  .copyWith(color: context.themeExtension.secondary),
-            ),
-            h8,
-            Text(
-              info.soulInfo.soulCharacter,
-              style: context.themeExtension.bodyText2Contrast,
-            ),
-            h24,
-            KgButton(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                backgroundColor: Colors.white,
-                textStyle: context.themeExtension.bodyText1.copyWith(
-                    color: context.colors.primary, fontWeight: FontWeight.w600),
-                label: '下載圖片',
-                onTap: () async {
-                  SoulImageDownloadDialog.show(context, info);
-                }),
-          ],
-        )),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _SoulTag(
+                    title: '靈魂數字',
+                    content: info.soulInfo.soulNumber.toString(),
+                  ),
+                  w24,
+                  const SlashDivider(),
+                  w24,
+                  _SoulTag(title: '靈魂色彩', content: info.soulInfo.soulColor),
+                  w24,
+                  const SlashDivider(),
+                  w24,
+                  Flexible(
+                      child: _SoulTag(
+                          title: '靈魂水晶', content: info.soulInfo.crystal)),
+                ],
+              ),
+              h24,
+              Text(
+                '特質',
+                style: context.themeExtension.bodyText2Contrast,
+              ),
+              h8,
+              Text(
+                info.soulInfo.keyword,
+                style: context.themeExtension.headline1
+                    .copyWith(color: context.themeExtension.secondary),
+              ),
+              h8,
+              Text(
+                info.soulInfo.soulCharacter,
+                style: context.themeExtension.bodyText2Contrast,
+              ),
+              h24,
+              KgButton(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                  backgroundColor: Colors.white,
+                  textStyle: context.themeExtension.bodyText1.copyWith(
+                      color: context.colors.primary,
+                      fontWeight: FontWeight.w600),
+                  label: '下載圖片',
+                  onTap: () async {
+                    SoulImageDownloadDialog.show(context, info);
+                  }),
+            ],
+          ),
+        ),
         context.isMobile ? h24 : w24,
         SoulImageView(info: info, isPreview: true),
       ],
@@ -92,6 +97,7 @@ class _SoulTag extends StatelessWidget {
         h8,
         AutoSizeText(
           content,
+          maxLines: 1,
           style: context.themeExtension.headline1
               .copyWith(color: context.themeExtension.secondary),
         ),

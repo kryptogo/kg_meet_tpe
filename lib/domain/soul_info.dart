@@ -1,8 +1,6 @@
-import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kg_meet_tpe/generated/assets.gen.dart';
-import 'package:kg_platform_interface/kg_platform_interface.dart';
 
 part 'soul_info.freezed.dart';
 part 'soul_info.g.dart';

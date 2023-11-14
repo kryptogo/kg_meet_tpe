@@ -74,11 +74,7 @@ class _GenerateResultScreenState extends State<GenerateResultScreen> {
                         child: widget.resultInfo.soulInfo.assetImage
                             .image(width: context.width, fit: BoxFit.cover),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: context.width * 0.06),
-                        child: ResultInfoView(info: widget.resultInfo),
-                      )
+                      ResultInfoView(info: widget.resultInfo)
                     ],
                   )
                 : Row(
