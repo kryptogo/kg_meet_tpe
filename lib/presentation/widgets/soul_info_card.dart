@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
-import 'package:kg_meet_tpe/generated/assets.gen.dart';
+import 'package:kg_meet_tpe/presentation/widgets/dialog_soul_image_download.dart';
+import 'package:kg_meet_tpe/presentation/widgets/soul_image_view.dart';
 
 class SoulInfoCard extends StatelessWidget {
   final GenerateResultInfo info;
@@ -27,17 +30,13 @@ class SoulInfoCard extends StatelessWidget {
                         title: '靈魂數字',
                         content: info.soulInfo.soulNumber.toString()),
                     w24,
-                    //todo alice divider
+                    const SlashDivider(),
                     w24,
-                    _SoulTag(
-                        title: '靈魂色彩',
-                        content: info.soulInfo.soulColor),
+                    _SoulTag(title: '靈魂色彩', content: info.soulInfo.soulColor),
                     w24,
-                    //todo alice divider
+                    const SlashDivider(),
                     w24,
-                    _SoulTag(
-                        title: '靈魂水晶',
-                        content: info.soulInfo.crystal),
+                    _SoulTag(title: '靈魂水晶', content: info.soulInfo.crystal),
                   ],
                 ),
                 h24,
@@ -67,14 +66,12 @@ class SoulInfoCard extends StatelessWidget {
                     label: '下載圖片',
                     onTap: () async {
                       //todo alice
+                      SoulImageDownloadDialog.show(context, info);
                     }),
               ],
             )),
             w24,
-            info.soulInfo.assetImage.image(
-                width: 140,
-                height: 252,
-                fit: BoxFit.cover),
+            SoulImageView(info: info, isPreview: true),
           ],
         ));
   }
@@ -84,7 +81,7 @@ class _SoulTag extends StatelessWidget {
   final String content;
   final String title;
 
-  const _SoulTag({super.key, required this.content, required this.title});
+  const _SoulTag({required this.content, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +99,31 @@ class _SoulTag extends StatelessWidget {
               .copyWith(color: context.themeExtension.secondary),
         ),
       ],
+    );
+  }
+}
+
+class SlashDivider extends StatelessWidget {
+  final double height;
+  final Color color;
+  final double thickness;
+
+  const SlashDivider({
+    Key? key,
+    this.height = 58.0,
+    this.color = Colors.white,
+    this.thickness = 1.0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Transform.rotate(
+      angle: pi / 12, // 15 degrees
+      child: Container(
+        height: height,
+        color: color,
+        width: thickness,
+      ),
     );
   }
 }

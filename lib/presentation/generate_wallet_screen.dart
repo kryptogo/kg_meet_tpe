@@ -39,7 +39,7 @@ class _GenerateWalletScreenState extends State<GenerateWalletScreen> {
       if (origin == 'https://t42ji2ji.github.io') {
         final result =
             GenerateResultInfo.fromJson(event.data.cast<String, dynamic>());
-        context.go(GenerateResultRoute().location, extra: result);
+        context.go(GenerateResultRoute(result.hex).location, extra: result);
       }
     });
 

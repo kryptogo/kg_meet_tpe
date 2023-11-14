@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 
@@ -10,14 +11,16 @@ class ThemeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return KgCard(
-        color: Colors.transparent,
-        borderColor: context.themeExtension.secondary,
-        padding: pd24,
-        child: Row(children: [
+      color: Colors.transparent,
+      borderColor: context.themeExtension.secondary,
+      padding: pd24,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Flexible(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Text(
                   '主題',
                   style: context.themeExtension.bodyText2Contrast,
@@ -30,12 +33,21 @@ class ThemeCard extends StatelessWidget {
                 ),
                 h8,
                 Text(
-                  '我們還為靈魂色彩為綠色的您，量身定制了 KryptoGO 錢包專屬主題，使用手機掃描 QR Code 立即套用。',
+                  '我們還為靈魂色彩為${info.soulInfo.soulColor}的您，量身定制了 KryptoGO 錢包專屬主題，使用手機掃描 QR Code 立即套用。',
                   style: context.themeExtension.bodyText2Contrast,
                 ),
-              ])),
+              ],
+            ),
+          ),
           w24,
           //todo alice themeQRcode
-        ]));
+          Container(
+            color: Colors.white,
+            width: ScreenUtil().setWidth(140),
+            height: ScreenUtil().setHeight(140),
+          )
+        ],
+      ),
+    );
   }
 }

@@ -15,7 +15,7 @@ RouteBase get $generateWalletRoute => GoRouteData.$route(
       factory: $GenerateWalletRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: 'result',
+          path: 'result/:hex',
           factory: $GenerateResultRouteExtension._fromState,
         ),
       ],
@@ -41,10 +41,12 @@ extension $GenerateWalletRouteExtension on GenerateWalletRoute {
 
 extension $GenerateResultRouteExtension on GenerateResultRoute {
   static GenerateResultRoute _fromState(GoRouterState state) =>
-      GenerateResultRoute();
+      GenerateResultRoute(
+        state.pathParameters['hex']!,
+      );
 
   String get location => GoRouteData.$location(
-        '/generate/result',
+        '/generate/result/${Uri.encodeComponent(hex)}',
       );
 
   void go(BuildContext context) => context.go(location);

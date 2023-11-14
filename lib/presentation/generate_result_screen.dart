@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
@@ -35,14 +37,13 @@ class _GenerateResultScreenState extends State<GenerateResultScreen> {
         backgroundColor: context.themeExtension.backgroundPrimary,
         body: Row(
           children: [
-            widget.resultInfo.soulInfo.assetImage.image(
-                width: context.width / 3,
-                fit: BoxFit.cover),
-            Expanded(child: Padding(
+            widget.resultInfo.soulInfo.assetImage
+                .image(width: context.width / 3, fit: BoxFit.cover),
+            Expanded(
+                child: Padding(
               padding: EdgeInsets.symmetric(horizontal: context.width * 0.06),
               child: ResultInfoView(info: widget.resultInfo),
             ))
-
           ],
         ));
   }
@@ -92,11 +93,23 @@ class ResultInfoView extends StatelessWidget {
               h24,
               Row(
                 children: [
-                  //todo alice ios download
-                  Assets.iosDownloadButton.image(width: 156, height: 48),
+                  InkWell(
+                      onTap: () {
+                        window.open(
+                            'https://apps.apple.com/app/kryptogo/id1593830910',
+                            "KryptoGO - Wallet App");
+                      },
+                      child: Assets.iosDownloadButton
+                          .image(width: 156, height: 48)),
                   w24,
-                  //todo alice google download
-                  Assets.googleDownloadButton.image(width: 156, height: 48)
+                  InkWell(
+                      onTap: () {
+                        window.open(
+                            'https://play.google.com/store/apps/details?id=com.kryptogo.walletapp',
+                            "KryptoGO - Wallet App");
+                      },
+                      child: Assets.googleDownloadButton
+                          .image(width: 156, height: 48))
                 ],
               ),
               h32,

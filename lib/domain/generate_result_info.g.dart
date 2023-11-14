@@ -12,7 +12,7 @@ _$GenerateResultInfoImpl _$$GenerateResultInfoImplFromJson(
       name: json['name'] as String,
       birth: json['birth'] as String,
       address: json['address'] as String,
-      privateKey: json['privateKey'] as String,
+      privateKey: json['privateKey'] as String?,
     );
 
 Map<String, dynamic> _$$GenerateResultInfoImplToJson(

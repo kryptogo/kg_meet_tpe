@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
@@ -34,10 +36,15 @@ class Footer extends StatelessWidget {
         children: [
           BackButton(),
           const Spacer(),
-          //todo alice
-          Text('認識KryptoGO Wallet',
-              style: context.themeExtension.headline3Contrast
-                  .copyWith(decoration: TextDecoration.underline)),
+          InkWell(
+            onTap: () {
+              window.open('https://www.kryptogo.com/products/wallet',
+                  "KryptoGO - Wallet App");
+            },
+            child: Text('認識KryptoGO Wallet',
+                style: context.themeExtension.headline3Contrast
+                    .copyWith(decoration: TextDecoration.underline)),
+          ),
         ],
       ),
     );

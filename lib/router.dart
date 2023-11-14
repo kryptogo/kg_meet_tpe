@@ -10,7 +10,7 @@ part 'router.g.dart';
 
 @TypedGoRoute<GenerateWalletRoute>(
   path: '/generate',
-  routes: [TypedGoRoute<GenerateResultRoute>(path: 'result')],
+  routes: [TypedGoRoute<GenerateResultRoute>(path: 'result/:hex')],
 )
 class GenerateWalletRoute extends GoRouteData {
   @override
@@ -20,24 +20,31 @@ class GenerateWalletRoute extends GoRouteData {
 }
 
 class GenerateResultRoute extends GoRouteData {
+  final String hex;
+
+  GenerateResultRoute(this.hex);
+
   @override
   Page<void> buildPage(context, state) {
     final resultInfo = state.extra as GenerateResultInfo?;
     return NoTransitionPage(
         child: GenerateResultScreen(
-            resultInfo: resultInfo ??
-                const GenerateResultInfo(
-                    name: 'Alice',
-                    birth: '05-01',
-                    address: '0x4185ca9b59745f767469B6a3E0066188e5E5c5e4',
-                    privateKey: 'pk1')));
+            resultInfo: resultInfo ?? GenerateResultInfo.fromHex(hex)));
   }
 
-  // @override
-  // FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
-  //   if (state.extra == null) {
-  //     return GenerateWalletRoute().location;
-  //   }
-  //   return super.redirect(context, state);
-  // }
+  @override
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
+    var resultInfo = state.extra as GenerateResultInfo?;
+    if (resultInfo == null) {
+      try {
+        resultInfo = GenerateResultInfo.fromHex(hex);
+      } catch (e) {
+        resultInfo = null;
+      }
+    }
+    if (resultInfo == null) {
+      return GenerateWalletRoute().location;
+    }
+    return super.redirect(context, state);
+  }
 }

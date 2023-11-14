@@ -23,7 +23,7 @@ mixin _$GenerateResultInfo {
   String get name => throw _privateConstructorUsedError;
   String get birth => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  String get privateKey => throw _privateConstructorUsedError;
+  String? get privateKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $GenerateResultInfoCopyWith<$Res> {
           GenerateResultInfo value, $Res Function(GenerateResultInfo) then) =
       _$GenerateResultInfoCopyWithImpl<$Res, GenerateResultInfo>;
   @useResult
-  $Res call({String name, String birth, String address, String privateKey});
+  $Res call({String name, String birth, String address, String? privateKey});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$GenerateResultInfoCopyWithImpl<$Res, $Val extends GenerateResultInfo>
     Object? name = null,
     Object? birth = null,
     Object? address = null,
-    Object? privateKey = null,
+    Object? privateKey = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -71,10 +71,10 @@ class _$GenerateResultInfoCopyWithImpl<$Res, $Val extends GenerateResultInfo>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      privateKey: null == privateKey
+      privateKey: freezed == privateKey
           ? _value.privateKey
           : privateKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$GenerateResultInfoImplCopyWith<$Res>
       __$$GenerateResultInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String birth, String address, String privateKey});
+  $Res call({String name, String birth, String address, String? privateKey});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$GenerateResultInfoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? birth = null,
     Object? address = null,
-    Object? privateKey = null,
+    Object? privateKey = freezed,
   }) {
     return _then(_$GenerateResultInfoImpl(
       name: null == name
@@ -119,10 +119,10 @@ class __$$GenerateResultInfoImplCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      privateKey: null == privateKey
+      privateKey: freezed == privateKey
           ? _value.privateKey
           : privateKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -134,7 +134,7 @@ class _$GenerateResultInfoImpl extends _GenerateResultInfo {
       {required this.name,
       required this.birth,
       required this.address,
-      required this.privateKey})
+      this.privateKey})
       : super._();
 
   factory _$GenerateResultInfoImpl.fromJson(Map<String, dynamic> json) =>
@@ -147,7 +147,7 @@ class _$GenerateResultInfoImpl extends _GenerateResultInfo {
   @override
   final String address;
   @override
-  final String privateKey;
+  final String? privateKey;
 
   @override
   String toString() {
@@ -191,7 +191,7 @@ abstract class _GenerateResultInfo extends GenerateResultInfo {
       {required final String name,
       required final String birth,
       required final String address,
-      required final String privateKey}) = _$GenerateResultInfoImpl;
+      final String? privateKey}) = _$GenerateResultInfoImpl;
   const _GenerateResultInfo._() : super._();
 
   factory _GenerateResultInfo.fromJson(Map<String, dynamic> json) =
@@ -204,7 +204,7 @@ abstract class _GenerateResultInfo extends GenerateResultInfo {
   @override
   String get address;
   @override
-  String get privateKey;
+  String? get privateKey;
   @override
   @JsonKey(ignore: true)
   _$$GenerateResultInfoImplCopyWith<_$GenerateResultInfoImpl> get copyWith =>
