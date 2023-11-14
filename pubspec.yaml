@@ -16,14 +16,21 @@ dependencies:
   #todo alice
   kg_kit:
      path: ../kg-flutter/packages/kg_kit
+#     git:
+#       url: https://github.com/kryptogo/kg-flutter.git
+#       path: packages/kg_kit
   kg_tools:
     path: ../kg-flutter/packages/kg_tools
+#    git:
+#      url: https://github.com/kryptogo/kg-flutter.git
+#      path: packages/kg_tools
   flutter_svg:
     git:
       url: https://github.com/kryptogo/flutter_svg
       ref: kw-fix-style-and-defs
   flutter_screenutil: ^5.9.0
   screenshot: ^2.1.0
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class ThemeCard extends StatelessWidget {
   final GenerateResultInfo info;
@@ -40,12 +43,21 @@ class ThemeCard extends StatelessWidget {
             ),
           ),
           w24,
-          //todo alice themeQRcode
           Container(
-            color: Colors.white,
-            width: ScreenUtil().setWidth(140),
-            height: ScreenUtil().setHeight(140),
-          )
+              padding: pd8,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.white,
+              ),
+              child: QrImageView(
+                data: 'https://kryptogodev.page.link/demo?content=${jsonEncode({
+                      'theme': {
+                        'primaryValue': info.soulInfo.walletPrimaryColor
+                      }
+                    })}',
+                padding: EdgeInsets.zero,
+                size: ScreenUtil().setWidth(140),
+              ))
         ],
       ),
     );

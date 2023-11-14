@@ -65,7 +65,6 @@ class SoulInfoCard extends StatelessWidget {
                         fontWeight: FontWeight.w600),
                     label: '下載圖片',
                     onTap: () async {
-                      //todo alice
                       SoulImageDownloadDialog.show(context, info);
                     }),
               ],

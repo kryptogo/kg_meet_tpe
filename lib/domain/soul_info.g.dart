@@ -8,6 +8,7 @@ part of 'soul_info.dart';
 
 _$SoulInfoImpl _$$SoulInfoImplFromJson(Map<String, dynamic> json) =>
     _$SoulInfoImpl(
+      walletPrimaryColor: json['walletPrimaryColor'] as int,
       backgroundColor: json['backgroundColor'] as int,
       buttonColor: json['buttonColor'] as int,
       outlineColor: json['outlineColor'] as int,
@@ -20,6 +21,7 @@ _$SoulInfoImpl _$$SoulInfoImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$SoulInfoImplToJson(_$SoulInfoImpl instance) =>
     <String, dynamic>{
+      'walletPrimaryColor': instance.walletPrimaryColor,
       'backgroundColor': instance.backgroundColor,
       'buttonColor': instance.buttonColor,
       'outlineColor': instance.outlineColor,

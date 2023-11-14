@@ -4,6 +4,7 @@ import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 import 'package:kg_meet_tpe/generated/assets.gen.dart';
 import 'package:kg_tools/kg_tools.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class SoulImageView extends StatelessWidget {
   final GenerateResultInfo info;
@@ -86,12 +87,14 @@ class _ImageHeader extends StatelessWidget {
               Text('生成你的Web3靈魂錢包 >> ',
                   style: context.themeExtension.bodyText1Contrast.copyWith(
                       fontSize: ScreenUtil().setSp(isPreview ? 5 : 12))),
-              //todo alice qrcode
               Container(
-                color: Colors.white,
-                width: ScreenUtil().setWidth(isPreview ? 24 : 36),
-                height: ScreenUtil().setHeight(isPreview ? 24 : 36),
-              )
+                  color: Colors.white,
+                  padding: const EdgeInsets.all(2),
+                  child: QrImageView(
+                    padding: EdgeInsets.zero,
+                    data: 'kryptogoSoulWallet', //todo alice
+                    size: ScreenUtil().setWidth(isPreview ? 24 : 36),
+                  ))
             ],
           )
         ],
@@ -149,12 +152,14 @@ class _ImageFooter extends StatelessWidget {
             ),
           ),
           w4,
-          //todo alice qrcode
           Container(
-            color: Colors.white,
-            width: ScreenUtil().setWidth(isPreview ? 24 : 56),
-            height: ScreenUtil().setHeight(isPreview ? 24 : 56),
-          )
+              color: Colors.white,
+              padding: EdgeInsets.all(isPreview ? 4 : 2),
+              child: QrImageView(
+                padding: EdgeInsets.zero,
+                data: info.address,
+                size: ScreenUtil().setWidth(isPreview ? 24 : 56),
+              ))
         ],
       ),
     );

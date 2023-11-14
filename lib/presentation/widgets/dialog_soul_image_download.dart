@@ -1,6 +1,5 @@
 import 'dart:html';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
@@ -73,7 +72,7 @@ class SoulImageDownloadDialogState extends State<SoulImageDownloadDialog> {
 
                       final url = Url.createObjectUrlFromBlob(blob);
                       final anchor = AnchorElement(href: url)
-                        ..setAttribute("download", 'soul_wallet.png')
+                        ..setAttribute("download", 'My wallet card.png')
                         ..click();
 
                       Url.revokeObjectUrl(url);

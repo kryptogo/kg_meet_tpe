@@ -20,6 +20,7 @@ SoulInfo _$SoulInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SoulInfo {
+  int get walletPrimaryColor => throw _privateConstructorUsedError;
   int get backgroundColor => throw _privateConstructorUsedError;
   int get buttonColor => throw _privateConstructorUsedError;
   int get outlineColor => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $SoulInfoCopyWith<$Res> {
       _$SoulInfoCopyWithImpl<$Res, SoulInfo>;
   @useResult
   $Res call(
-      {int backgroundColor,
+      {int walletPrimaryColor,
+      int backgroundColor,
       int buttonColor,
       int outlineColor,
       int soulNumber,
@@ -64,6 +66,7 @@ class _$SoulInfoCopyWithImpl<$Res, $Val extends SoulInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? walletPrimaryColor = null,
     Object? backgroundColor = null,
     Object? buttonColor = null,
     Object? outlineColor = null,
@@ -74,6 +77,10 @@ class _$SoulInfoCopyWithImpl<$Res, $Val extends SoulInfo>
     Object? soulCharacter = null,
   }) {
     return _then(_value.copyWith(
+      walletPrimaryColor: null == walletPrimaryColor
+          ? _value.walletPrimaryColor
+          : walletPrimaryColor // ignore: cast_nullable_to_non_nullable
+              as int,
       backgroundColor: null == backgroundColor
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -119,7 +126,8 @@ abstract class _$$SoulInfoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int backgroundColor,
+      {int walletPrimaryColor,
+      int backgroundColor,
       int buttonColor,
       int outlineColor,
       int soulNumber,
@@ -140,6 +148,7 @@ class __$$SoulInfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? walletPrimaryColor = null,
     Object? backgroundColor = null,
     Object? buttonColor = null,
     Object? outlineColor = null,
@@ -150,6 +159,10 @@ class __$$SoulInfoImplCopyWithImpl<$Res>
     Object? soulCharacter = null,
   }) {
     return _then(_$SoulInfoImpl(
+      walletPrimaryColor: null == walletPrimaryColor
+          ? _value.walletPrimaryColor
+          : walletPrimaryColor // ignore: cast_nullable_to_non_nullable
+              as int,
       backgroundColor: null == backgroundColor
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -190,7 +203,8 @@ class __$$SoulInfoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SoulInfoImpl extends _SoulInfo {
   const _$SoulInfoImpl(
-      {required this.backgroundColor,
+      {required this.walletPrimaryColor,
+      required this.backgroundColor,
       required this.buttonColor,
       required this.outlineColor,
       required this.soulNumber,
@@ -203,6 +217,8 @@ class _$SoulInfoImpl extends _SoulInfo {
   factory _$SoulInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$SoulInfoImplFromJson(json);
 
+  @override
+  final int walletPrimaryColor;
   @override
   final int backgroundColor;
   @override
@@ -222,7 +238,7 @@ class _$SoulInfoImpl extends _SoulInfo {
 
   @override
   String toString() {
-    return 'SoulInfo(backgroundColor: $backgroundColor, buttonColor: $buttonColor, outlineColor: $outlineColor, soulNumber: $soulNumber, keyword: $keyword, crystal: $crystal, soulColor: $soulColor, soulCharacter: $soulCharacter)';
+    return 'SoulInfo(walletPrimaryColor: $walletPrimaryColor, backgroundColor: $backgroundColor, buttonColor: $buttonColor, outlineColor: $outlineColor, soulNumber: $soulNumber, keyword: $keyword, crystal: $crystal, soulColor: $soulColor, soulCharacter: $soulCharacter)';
   }
 
   @override
@@ -230,6 +246,8 @@ class _$SoulInfoImpl extends _SoulInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SoulInfoImpl &&
+            (identical(other.walletPrimaryColor, walletPrimaryColor) ||
+                other.walletPrimaryColor == walletPrimaryColor) &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.buttonColor, buttonColor) ||
@@ -248,8 +266,17 @@ class _$SoulInfoImpl extends _SoulInfo {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, backgroundColor, buttonColor,
-      outlineColor, soulNumber, keyword, crystal, soulColor, soulCharacter);
+  int get hashCode => Object.hash(
+      runtimeType,
+      walletPrimaryColor,
+      backgroundColor,
+      buttonColor,
+      outlineColor,
+      soulNumber,
+      keyword,
+      crystal,
+      soulColor,
+      soulCharacter);
 
   @JsonKey(ignore: true)
   @override
@@ -267,7 +294,8 @@ class _$SoulInfoImpl extends _SoulInfo {
 
 abstract class _SoulInfo extends SoulInfo {
   const factory _SoulInfo(
-      {required final int backgroundColor,
+      {required final int walletPrimaryColor,
+      required final int backgroundColor,
       required final int buttonColor,
       required final int outlineColor,
       required final int soulNumber,
@@ -280,6 +308,8 @@ abstract class _SoulInfo extends SoulInfo {
   factory _SoulInfo.fromJson(Map<String, dynamic> json) =
       _$SoulInfoImpl.fromJson;
 
+  @override
+  int get walletPrimaryColor;
   @override
   int get backgroundColor;
   @override

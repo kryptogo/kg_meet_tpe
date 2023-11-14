@@ -2,6 +2,7 @@ import 'package:kg_meet_tpe/domain/soul_info.dart';
 
 const Map<int, SoulInfo> soulConstant = {
   1: SoulInfo(
+      walletPrimaryColor: 0xffFF988F,
       backgroundColor: 0xff4A0F0B,
       buttonColor: 0xffDA3D2F,
       outlineColor: 0xffFFBDBD,
@@ -14,6 +15,7 @@ const Map<int, SoulInfo> soulConstant = {
           '中夢想工廠搬到現實世界的魔術師，總能用自身的自信和堅持，以驚人的效率實踐目標，在追尋'
           '夢想與的旅途上，同時會確保大家感受到同樣頻率的快樂和有趣，是顆充滿溫度和前進力量的靈魂。'),
   2: SoulInfo(
+      walletPrimaryColor: 0xffFFB47C,
       backgroundColor: 0xff562B09,
       buttonColor: 0xffFF862B,
       outlineColor: 0xffFFDEBB,
@@ -27,6 +29,7 @@ const Map<int, SoulInfo> soulConstant = {
           '力確保每個人都有機會發光發熱，即使是在熱鬧的派對中，也能瞬間感知哪位朋友需要一個安靜'
           '的角落或是一次真誠的對話。這些天生的和諧創造者，存在本身就是一個讓人心情舒緩的生活小秘訣。'),
   3: SoulInfo(
+      walletPrimaryColor: 0xffFFD56A,
       backgroundColor: 0xff463100,
       buttonColor: 0xffFFBC0E,
       outlineColor: 0xffFFEAA3,
@@ -40,6 +43,7 @@ const Map<int, SoulInfo> soulConstant = {
           '追求快樂和滿足，同時也將這樣的樂觀態度散播給周圍的人。3 號人的靈魂渴望表達，將內心的'
           '火花轉化為別出心裁的藝術形式，並且帶給世界正面和啟發性的影響。'),
   4: SoulInfo(
+      walletPrimaryColor: 0xff4DE7AF,
       backgroundColor: 0xff053221,
       buttonColor: 0xff009C64,
       outlineColor: 0xffA7FFD8,
@@ -53,6 +57,7 @@ const Map<int, SoulInfo> soulConstant = {
           '和熟悉的舞步的你可能會像穿錯鞋的舞者一般稍顯笨拙與慌張。但當一切都步回正軌時，仍是那'
           '個能夠給予大家支持與信賴的存在。'),
   5: SoulInfo(
+      walletPrimaryColor: 0xff78E3FF,
       backgroundColor: 0xff193F5B,
       buttonColor: 0xff0ECDFF,
       outlineColor: 0xffC5EAFB,
@@ -66,6 +71,7 @@ const Map<int, SoulInfo> soulConstant = {
           '一把鑰匙，為身旁的人開啟了一扇扇通往新世界的大門。對 5 號人來說，生活本身就是一系列'
           '等待發現的寶藏。'),
   6: SoulInfo(
+      walletPrimaryColor: 0xff9FB4EA,
       backgroundColor: 0xff000849,
       buttonColor: 0xff3657AC,
       outlineColor: 0xffCCE7FF,
@@ -79,6 +85,7 @@ const Map<int, SoulInfo> soulConstant = {
           '人，每個角落都灑滿了愛與歡笑。6 號人的生活就像一部溫馨的家庭電影，無論發生什麼，結局'
           '總是充滿愛和希望。'),
   7: SoulInfo(
+      walletPrimaryColor: 0xffDF98FF,
       backgroundColor: 0xff3B004F,
       buttonColor: 0xff9F3CCB,
       outlineColor: 0xffF6E1FF,
@@ -91,6 +98,7 @@ const Map<int, SoulInfo> soulConstant = {
           '派對上痛快談論宇宙奧秘而忘了派對仍在進行的人。總是帶著一絲不易察覺的微笑，喜歡在書堆'
           '和思想迷宮中尋寶，以一種輕鬆而玩味的方式，探索著生活和宇宙的奇妙。'),
   8: SoulInfo(
+      walletPrimaryColor: 0xffEECF81,
       backgroundColor: 0xff593E01,
       buttonColor: 0xffE3AF2B,
       outlineColor: 0xffF8E8C1,
@@ -105,6 +113,7 @@ const Map<int, SoulInfo> soulConstant = {
           '決心和專注，然而也可能會因為過於關注結果而忽略過程中的成長，這是擁有數字 8 的靈魂'
           '需要學習的平衡藝術。'),
   9: SoulInfo(
+      walletPrimaryColor: 0xffB5D2E2,
       backgroundColor: 0xff3D4547,
       buttonColor: 0xff829EAD,
       outlineColor: 0xffDEF8FC,

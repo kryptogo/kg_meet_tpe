@@ -56,19 +56,20 @@ class _GenerateWalletScreenState extends State<GenerateWalletScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xff031942),
         body: FutureBuilder<bool?>(
-      future: loadHtmlFuture,
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (snapshot.error != null || snapshot.data == null) {
-          return const Center(child: Text('加载失败'));
-        }
-        return HtmlElementView(
-          viewType: createdViewId,
-        );
-      },
-    ));
+          future: loadHtmlFuture,
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            if (snapshot.error != null || snapshot.data == null) {
+              return const Center(child: Text('加载失败'));
+            }
+            return HtmlElementView(
+              viewType: createdViewId,
+            );
+          },
+        ));
   }
 }

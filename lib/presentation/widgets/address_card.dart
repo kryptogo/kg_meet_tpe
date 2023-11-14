@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kg_kit/kg_kit.dart';
@@ -78,7 +80,8 @@ class AddressCard extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                           label: '下載/開啟 KryotoGO錢包',
                           onTap: () async {
-                            //todo alice
+                            window.open('https://kryptogo.page.link/wallet-tw',
+                                'KryptoGO - Wallet App');
                           }),
                     ],
                   )
