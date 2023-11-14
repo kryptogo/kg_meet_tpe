@@ -140,23 +140,34 @@ class ResultInfoView extends StatelessWidget {
                 h24,
                 Row(
                   children: [
-                    InkWell(
-                        onTap: () {
-                          window.open(
-                              'https://apps.apple.com/app/kryptogo/id1593830910',
-                              "KryptoGO - Wallet App");
-                        },
-                        child: Assets.iosDownloadButton
-                            .image(width: 156, height: 48)),
+                    Flexible(
+                      child: InkWell(
+                          onTap: () {
+                            window.open(
+                                'https://apps.apple.com/app/kryptogo/id1593830910',
+                                "KryptoGO - Wallet App");
+                          },
+                          child: ConstrainedBox(
+                              constraints: const BoxConstraints(
+                                  maxWidth: 156, maxHeight: 48),
+                              child: Assets.iosDownloadButton
+                              .image(fit: BoxFit.fitWidth))),
+                    ),
                     w24,
-                    InkWell(
-                        onTap: () {
-                          window.open(
-                              'https://play.google.com/store/apps/details?id=com.kryptogo.walletapp',
-                              "KryptoGO - Wallet App");
-                        },
-                        child: Assets.googleDownloadButton
-                            .image(width: 156, height: 48))
+                    Flexible(
+                      child: InkWell(
+                          onTap: () {
+                            window.open(
+                                'https://play.google.com/store/apps/details?id=com.kryptogo.walletapp',
+                                "KryptoGO - Wallet App");
+                          },
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(
+                                maxWidth: 156, maxHeight: 48),
+                            child: Assets.googleDownloadButton
+                                .image(fit: BoxFit.fitWidth),
+                          )),
+                    )
                   ],
                 ),
                 h32,

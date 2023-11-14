@@ -45,7 +45,7 @@ class ThemeCard extends StatelessWidget {
               color: Colors.white,
             ),
             child: QrImageView(
-              data: 'https://kryptogodev.page.link/demo?content=${jsonEncode({
+              data: 'https://kryptogo.page.link/demo?content=${jsonEncode({
                     'theme': {'primaryValue': info.soulInfo.walletPrimaryColor}
                   })}',
               padding: EdgeInsets.zero,

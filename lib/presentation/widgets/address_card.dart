@@ -53,19 +53,17 @@ class AddressCard extends StatelessWidget {
             Row(
               children: [
                 if (info.privateKey != null) ...[
-                  Flexible(
-                    child: KgButton(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 24, vertical: 14),
-                        textStyle: context.themeExtension.bodyText1Contrast
-                            .copyWith(fontWeight: FontWeight.w600),
-                        label: '複製私鑰',
-                        onTap: () async {
-                          Clipboard.setData(
-                              ClipboardData(text: info.privateKey!));
-                          showToast('複製成功');
-                        }),
-                  ),
+                  KgButton(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24, vertical: 14),
+                      textStyle: context.themeExtension.bodyText1Contrast
+                          .copyWith(fontWeight: FontWeight.w600),
+                      label: '複製私鑰',
+                      onTap: () async {
+                        Clipboard.setData(
+                            ClipboardData(text: info.privateKey!));
+                        showToast('複製成功');
+                      }),
                   w24,
                 ],
                 Flexible(
