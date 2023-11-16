@@ -1,11 +1,11 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kg_kit/kg_kit.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:kg_meet_tpe/domain/generate_result_info.dart';
-import 'package:kg_meet_tpe/presentation/widgets/base_card.dart';
 import 'package:kg_meet_tpe/presentation/dialog/dialog_soul_image_download.dart';
+import 'package:kg_meet_tpe/presentation/widgets/base_card.dart';
 import 'package:kg_meet_tpe/presentation/widgets/soul_image_view.dart';
 
 class SoulInfoCard extends StatelessWidget {
@@ -67,7 +67,11 @@ class SoulInfoCard extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                   label: '下載圖片',
                   onTap: () async {
-                    SoulImageDownloadDialog.show(context, info);
+                    try {
+                      SoulImageDownloadDialog.show(context, info);
+                    } catch (e) {
+                      debugPrint('=======e : $e=========');
+                    }
                   }),
             ],
           ),
