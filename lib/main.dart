@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return KgMaterialApp.router(
-      title: 'KryptoGO Meet Taipei',
+      title: 'KryptoGO 靈魂錢包生成器',
       routerConfig: _router,
       supportedLocales: const [
         Locale('en', 'US'),

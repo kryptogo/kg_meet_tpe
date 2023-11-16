@@ -1,11 +1,11 @@
 {
-    "name": "kg_meet_tpe",
-    "short_name": "kg_meet_tpe",
+    "name": "KryptoGO 靈魂錢包生成器",
+    "short_name": "KryptoGO 靈魂錢包生成器",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "讓KryptoGO 為您定制一個專屬的生日錢包地址，使其不僅是一串冰冷的數字和符號，更蘊含了您獨特的靈魂與溫度！",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
