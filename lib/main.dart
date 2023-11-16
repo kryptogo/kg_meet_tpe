@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
       routerConfig: _router,
       supportedLocales: const [
         Locale('en', 'US'),
-        Locale('zh', 'TW'),
       ],
     );
   }
