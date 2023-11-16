@@ -90,7 +90,7 @@ class _ImageHeader extends StatelessWidget {
                   padding: const EdgeInsets.all(2),
                   child: QrImageView(
                     padding: EdgeInsets.zero,
-                    data: 'kryptogoSoulWallet', //todo alice
+                    data: 'https://soul-wallet.kryptogo.com',
                     size: isPreview ? 24 : 36,
                   ))
             ],
