@@ -42,7 +42,7 @@ class Footer extends StatelessWidget {
           const Spacer(),
           InkWell(
             onTap: () {
-              window.open('https://www.kryptogo.com/products/wallet',
+              window.open('https://www.kryptogo.com/tw/products/wallet',
                   "KryptoGO - Wallet App");
             },
             child: Text('認識KryptoGO Wallet',
