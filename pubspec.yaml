@@ -27,6 +27,7 @@ dependencies:
       ref: kw-fix-style-and-defs
   screenshot: ^2.1.0
   qr_flutter: ^4.1.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kg_kit/kg_kit.dart';
@@ -7,7 +8,6 @@ import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 import 'package:kg_meet_tpe/generated/assets.gen.dart';
 import 'package:kg_meet_tpe/presentation/dialog/dialog_pk_qrcode.dart';
 import 'package:kg_meet_tpe/presentation/widgets/base_card.dart';
-import 'package:kg_tools/kg_tools.dart';
 
 class AddressCard extends StatelessWidget {
   final GenerateResultInfo info;
@@ -26,10 +26,23 @@ class AddressCard extends StatelessWidget {
               style: context.themeExtension.bodyText2Contrast,
             ),
             h8,
-            Text(
-              info.address.toFormattedAddress(),
-              style: context.themeExtension.headline1
-                  .copyWith(color: context.themeExtension.secondary),
+            Row(
+              children: [
+                Text(
+                  info.formattedAddress
+                      .substring(0, info.formattedAddress.length - 4),
+                  style: context.themeExtension.headline1
+                      .copyWith(color: context.themeExtension.secondary),
+                ),
+                AnimatedTextKit(animatedTexts: [
+                  WavyAnimatedText(
+                      info.formattedAddress.substring(
+                          info.formattedAddress.length - 4,
+                          info.formattedAddress.length),
+                      textStyle: context.themeExtension.headline1
+                          .copyWith(color: context.themeExtension.secondary)),
+                ], isRepeatingAnimation: true, repeatForever: true),
+              ],
             ),
             h8,
             Row(
