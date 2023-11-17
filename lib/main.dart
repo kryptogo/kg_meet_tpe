@@ -2,8 +2,10 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/router.dart' as router;
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() {
+  setUrlStrategy(PathUrlStrategy());
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const KgKit(child: MyApp()));
 }

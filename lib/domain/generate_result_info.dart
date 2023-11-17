@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kg_meet_tpe/constants/constant.dart';
 import 'package:kg_meet_tpe/domain/soul_info.dart';
+import 'package:kg_tools/kg_tools.dart';
 
 part 'generate_result_info.freezed.dart';
 
@@ -34,22 +35,20 @@ class GenerateResultInfo with _$GenerateResultInfo {
     return birthList.first;
   }
 
+  String get formattedAddress => address.toFormattedAddress();
+
   SoulInfo get soulInfo => soulConstant[soulNumber]!;
 
-  String get hex {
+  String get encodedSoulInfo {
     final encodeInfo = copyWith(privateKey: null);
     String jsonString = jsonEncode(encodeInfo.toJson());
 
     List<int> bytes = utf8.encode(jsonString);
-
-    return bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+    return base64Encode(bytes);
   }
 
-  factory GenerateResultInfo.fromHex(String hex) {
-    Uint8List bytes = Uint8List.fromList(List<int>.generate(
-      hex.length ~/ 2,
-      (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16),
-    ));
+  factory GenerateResultInfo.fromEncodedSoulInfo(String encodedSoulInfo) {
+    Uint8List bytes = Uint8List.fromList(base64Decode(encodedSoulInfo));
 
     String jsonString = utf8.decode(bytes);
 

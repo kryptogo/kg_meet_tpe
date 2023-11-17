@@ -10,7 +10,7 @@ part 'router.g.dart';
 
 @TypedGoRoute<GenerateWalletRoute>(
   path: '/generate',
-  routes: [TypedGoRoute<GenerateResultRoute>(path: 'result/:hex')],
+  routes: [TypedGoRoute<GenerateResultRoute>(path: 'result/:encodedInfo')],
 )
 class GenerateWalletRoute extends GoRouteData {
   @override
@@ -20,16 +20,17 @@ class GenerateWalletRoute extends GoRouteData {
 }
 
 class GenerateResultRoute extends GoRouteData {
-  final String hex;
+  final String encodedInfo;
 
-  GenerateResultRoute(this.hex);
+  GenerateResultRoute(this.encodedInfo);
 
   @override
   Page<void> buildPage(context, state) {
     final resultInfo = state.extra as GenerateResultInfo?;
     return NoTransitionPage(
         child: GenerateResultScreen(
-            resultInfo: resultInfo ?? GenerateResultInfo.fromHex(hex)));
+            resultInfo: resultInfo ??
+                GenerateResultInfo.fromEncodedSoulInfo(encodedInfo)));
   }
 
   @override
@@ -37,7 +38,7 @@ class GenerateResultRoute extends GoRouteData {
     var resultInfo = state.extra as GenerateResultInfo?;
     if (resultInfo == null) {
       try {
-        resultInfo = GenerateResultInfo.fromHex(hex);
+        resultInfo = GenerateResultInfo.fromEncodedSoulInfo(encodedInfo);
       } catch (e) {
         resultInfo = null;
       }

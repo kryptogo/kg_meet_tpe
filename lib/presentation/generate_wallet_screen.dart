@@ -12,7 +12,7 @@ class GenerateWalletScreen extends StatefulWidget {
   const GenerateWalletScreen({super.key});
 
   @override
-  _GenerateWalletScreenState createState() => _GenerateWalletScreenState();
+  State<GenerateWalletScreen> createState() => _GenerateWalletScreenState();
 }
 
 class _GenerateWalletScreenState extends State<GenerateWalletScreen> {
@@ -39,7 +39,8 @@ class _GenerateWalletScreenState extends State<GenerateWalletScreen> {
       if (origin == 'https://t42ji2ji.github.io') {
         final result =
             GenerateResultInfo.fromJson(event.data.cast<String, dynamic>());
-        context.go(GenerateResultRoute(result.hex).location, extra: result);
+        context.go(GenerateResultRoute(result.encodedSoulInfo).location,
+            extra: result);
       }
     });
 
