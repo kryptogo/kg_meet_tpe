@@ -79,8 +79,10 @@ class _GenerateResultScreenState extends State<GenerateResultScreen> {
                   )
                 : Row(
                     children: [
-                      widget.resultInfo.soulInfo.assetImage
-                          .image(width: context.width / 3, height: context.height, fit: BoxFit.cover),
+                      widget.resultInfo.soulInfo.assetImage.image(
+                          width: context.width / 3,
+                          height: context.height,
+                          fit: BoxFit.cover),
                       Expanded(
                           child: Padding(
                         padding: EdgeInsets.symmetric(
@@ -113,8 +115,7 @@ class ResultInfoView extends StatelessWidget {
                   : CrossAxisAlignment.start,
               children: [
                 const Header(),
-                h32,
-                h8,
+                if (context.isMobile) h16 else ...[h32, h8],
                 Text(
                   info.name,
                   style: context.themeExtension.headline1
@@ -133,7 +134,7 @@ class ResultInfoView extends StatelessWidget {
                 ThemeCard(info: info),
                 h24,
                 Text(
-                  '特質為${info.soulInfo.keyword}的${info.name}，適合使用保障你資產和交易安全的 KryptoGO 錢包',
+                  '特質為${info.soulInfo.keyword}的 ${info.name}，適合使用保障你資產和交易安全的 KryptoGO 錢包',
                   style: (context.isMobile
                           ? context.themeExtension.bodyText1Bold
                           : context.themeExtension.headline1)
@@ -153,7 +154,7 @@ class ResultInfoView extends StatelessWidget {
                               constraints: const BoxConstraints(
                                   maxWidth: 156, maxHeight: 48),
                               child: Assets.iosDownloadButton
-                              .image(fit: BoxFit.fitWidth))),
+                                  .image(fit: BoxFit.fitWidth))),
                     ),
                     w24,
                     Flexible(

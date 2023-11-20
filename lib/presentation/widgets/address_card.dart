@@ -49,7 +49,7 @@ class AddressCard extends StatelessWidget {
               children: [
                 Flexible(
                   child: Text.rich(TextSpan(
-                      text: '完整地址：\n${info.address}',
+                      text: '完整地址\n${info.address}',
                       style: context.themeExtension.bodyText2Contrast,
                       children: [
                         const WidgetSpan(child: w8),
@@ -67,7 +67,9 @@ class AddressCard extends StatelessWidget {
               ],
             ),
             h24,
-            Row(
+            Wrap(
+              spacing: 24,
+              runSpacing: 16,
               children: [
                 if (info.privateKey != null) ...[
                   KgButton(
@@ -81,29 +83,50 @@ class AddressCard extends StatelessWidget {
                             ClipboardData(text: info.privateKey!));
                         showToast('複製成功');
                       }),
-                  w24,
                 ],
-                Flexible(
-                  child: KgButton(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 14),
-                      backgroundColor: Colors.white,
-                      textStyle: context.themeExtension.bodyText1.copyWith(
-                          color: context.colors.primary,
-                          fontWeight: FontWeight.w600),
-                      label: '下載/開啟 KryotoGO錢包',
-                      onTap: () async {
-                        window.open('https://kryptogo.page.link/wallet-tw',
-                            'KryptoGO - Wallet App');
-                      }),
+                if (context.isMobile && info.privateKey != null)
+                  KgButton(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 14),
+                    type: KgButtonType.primary,
+                    backgroundColor: Colors.white,
+                    textStyle: context.themeExtension.bodyText1.copyWith(
+                        color: context.colors.primary,
+                        fontWeight: FontWeight.w600),
+                    prefixIcon: Assets.iconLock.svg(
+                        width: 24,
+                        height: 24,
+                        color: context.themeExtension.primary),
+                    label: '顯示私鑰 QRcode',
+                    onTap: () async {
+                      PrivateKeyDialog.show(context, info);
+                    },
+                  ),
+                KgButton(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                  backgroundColor: context.isMobile ? null : Colors.white,
+                  type: context.isMobile
+                      ? KgButtonType.outline
+                      : KgButtonType.primary,
+                  width: context.isMobile ? double.infinity : null,
+                  textStyle: context.themeExtension.bodyText1.copyWith(
+                      color: context.colors.primary,
+                      fontWeight: FontWeight.w600,
+                      fontSize: context.isMobile ? 18 : 16),
+                  label: '下載/開啟 KryotoGO錢包',
+                  onTap: () async {
+                    window.open('https://kryptogo.page.link/wallet-tw',
+                        'KryptoGO - Wallet App');
+                  },
                 ),
               ],
             )
           ],
         ),
       ),
-      if (info.privateKey != null) ...[
-        context.isMobile ? h24 : w24,
+      if (info.privateKey != null && !context.isMobile) ...[
+        w24,
         InkWell(
           onTap: () {
             PrivateKeyDialog.show(context, info);
