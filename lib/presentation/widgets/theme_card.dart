@@ -39,7 +39,7 @@ class ThemeCard extends StatelessWidget {
         ),
         context.isMobile ? h24 : w24,
         Container(
-            padding: pd8,
+            padding: context.isMobile ? pd4 : pd8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
@@ -49,7 +49,7 @@ class ThemeCard extends StatelessWidget {
                     'theme': {'primaryValue': info.soulInfo.walletPrimaryColor}
                   })}',
               padding: EdgeInsets.zero,
-              size: 140,
+              size: context.isMobile ? 100 : 140,
             ))
       ],
     );

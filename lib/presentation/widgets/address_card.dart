@@ -48,18 +48,22 @@ class AddressCard extends StatelessWidget {
             Row(
               children: [
                 Flexible(
-                  child: Text(
-                    info.address,
-                    style: context.themeExtension.bodyText2Contrast,
-                  ),
+                  child: Text.rich(TextSpan(
+                      text: '完整地址：\n${info.address}',
+                      style: context.themeExtension.bodyText2Contrast,
+                      children: [
+                        const WidgetSpan(child: w8),
+                        WidgetSpan(
+                            child: InkWell(
+                                onTap: () async {
+                                  Clipboard.setData(
+                                      ClipboardData(text: info.address));
+                                  showToast('複製成功');
+                                },
+                                child:
+                                    Assets.iconCopy.svg(width: 16, height: 16)))
+                      ])),
                 ),
-                w8,
-                InkWell(
-                    onTap: () async {
-                      Clipboard.setData(ClipboardData(text: info.address));
-                      showToast('複製成功');
-                    },
-                    child: Assets.iconCopy.svg(width: 16, height: 16))
               ],
             ),
             h24,

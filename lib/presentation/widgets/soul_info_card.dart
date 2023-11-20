@@ -29,16 +29,14 @@ class SoulInfoCard extends StatelessWidget {
                     title: '靈魂數字',
                     content: info.soulInfo.soulNumber.toString(),
                   ),
-                  w24,
+                  context.isMobile ? w12: w24,
                   const SlashDivider(),
-                  w24,
+                  context.isMobile ? w12: w24,
                   _SoulTag(title: '靈魂色彩', content: info.soulInfo.soulColor),
-                  w24,
+                  context.isMobile ? w12: w24,
                   const SlashDivider(),
-                  w24,
-                  Flexible(
-                      child: _SoulTag(
-                          title: '靈魂水晶', content: info.soulInfo.crystal)),
+                  context.isMobile ? w12: w24,
+                  _SoulTag(title: '靈魂水晶', content: info.soulInfo.crystal),
                 ],
               ),
               h24,
@@ -102,6 +100,7 @@ class _SoulTag extends StatelessWidget {
         AutoSizeText(
           content,
           maxLines: 1,
+          minFontSize: 5,
           style: context.themeExtension.headline1
               .copyWith(color: context.themeExtension.secondary),
         ),

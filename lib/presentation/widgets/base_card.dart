@@ -26,6 +26,7 @@ class BaseCard extends StatelessWidget {
               )
             : Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: children,
               ));
   }

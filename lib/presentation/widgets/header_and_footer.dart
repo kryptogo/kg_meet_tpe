@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:kg_kit/kg_kit.dart';
 import 'package:kg_meet_tpe/generated/assets.gen.dart';
+import 'package:kg_meet_tpe/presentation/widgets/base_card.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
@@ -19,10 +20,13 @@ class Header extends StatelessWidget {
           Expanded(
               child: AutoSizeText(
             '靈魂錢包生成器',
-            style: context.themeExtension.headline3Contrast,
+            style: context.isMobile
+                ? context.themeExtension.bodyText2BoldContrast
+                : context.themeExtension.headline3Contrast,
             maxLines: 1,
           )),
-          Assets.logo.svg()
+          Assets.logo
+              .svg(height: context.isMobile ? 16 : 24, fit: BoxFit.fitHeight)
         ],
       ),
     );

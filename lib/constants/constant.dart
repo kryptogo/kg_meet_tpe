@@ -8,7 +8,7 @@ const Map<int, SoulInfo> soulConstant = {
       outlineColor: 0xffFFBDBD,
       soulNumber: 1,
       keyword: '堅毅、獨立、領導力',
-      crystal: '石榴石、紅寶石',
+      crystal: '石榴石',
       soulColor: '紅色',
       soulCharacter: '靈魂數字 1 的你，就像是那種自動自發帶領全班踏上校外教學的班長。你的靈'
           '魂像煙火一樣燦爛，帶頭點亮新思路，讓別人也能在你鋪好的小徑上跳舞。你是那種能夠將腦海'
@@ -21,7 +21,7 @@ const Map<int, SoulInfo> soulConstant = {
       outlineColor: 0xffFFDEBB,
       soulNumber: 2,
       keyword: '同理、溝通、平衡',
-      crystal: '珊瑚、琥珀',
+      crystal: '琥珀',
       soulColor: '橙色',
       soulCharacter: '靈魂數字 2 的你是團隊協作擔當，當衝突發生時，你總是像那個帶著冰淇淋和'
           '一部喜劇電影出現的人，讓氣氛煥然一新。同時也是在聽別人訴說煩惱的時候，那個不知不覺中'
@@ -35,7 +35,7 @@ const Map<int, SoulInfo> soulConstant = {
       outlineColor: 0xffFFEAA3,
       soulNumber: 3,
       keyword: '創意、樂觀、社交',
-      crystal: '黃玉、黃水晶',
+      crystal: '黃水晶',
       soulColor: '黃色',
       soulCharacter: '靈魂數字 3 的人就像是生活中的喜劇演員，擁有將日常瑣事轉化為歡樂片段的天'
           '賦。口袋裡總裝著即興笑話和輕鬆幽默，能在任何情境下引爆全場的歡笑，也是在 KTV 不需要'
@@ -51,11 +51,11 @@ const Map<int, SoulInfo> soulConstant = {
       keyword: '穩定、務實、安全',
       crystal: '綠水晶',
       soulColor: '綠色',
-      soulCharacter: '靈魂數字 4 的人就像是會產出和旅行社一樣詳盡的行程表，同時備有計畫'
-          ' B、C、D 的人，需要時還會生出行動電源和 OK 蹦的那種朋友。可靠並且富有強烈的責任感，'
-          '習慣透過縝密的規劃建立起穩固的秩序，逐步邁向目標。因此當發生突發狀況時，嚮往既定節奏'
-          '和熟悉的舞步的你可能會像穿錯鞋的舞者一般稍顯笨拙與慌張。但當一切都步回正軌時，仍是那'
-          '個能夠給予大家支持與信賴的存在。'),
+      soulCharacter: '靈魂數字 4 就像是會產出和旅行社一樣詳盡的行程表，同時備有計畫 B、C、D '
+          '的人，需要時還會生出行動電源和 OK 蹦的那種朋友。可靠並且富有強烈的責任感，習慣透過縝'
+          '密的規劃建立起穩固的秩序，逐步邁向目標。因此當發生突發狀況時，嚮往既定節奏和熟悉的'
+          '舞步的你可能會像穿錯鞋的舞者一般稍顯笨拙與慌張。但當一切都步回正軌時，仍是那個能夠'
+          '給予大家支持與信賴的存在。'),
   5: SoulInfo(
       walletPrimaryColor: 0xff78E3FF,
       backgroundColor: 0xff193F5B,
@@ -63,7 +63,7 @@ const Map<int, SoulInfo> soulConstant = {
       outlineColor: 0xffC5EAFB,
       soulNumber: 5,
       keyword: '自由、嘗試、變化',
-      crystal: '藍寶石、托帕石',
+      crystal: '藍寶石',
       soulColor: '藍色',
       soulCharacter: '靈魂數字 5 的人總能在日常中找到新樂趣，他們不是在旅途中就是在計畫下一'
           '次的旅行，隨時準備迎接新的刺激，屬於最好揪的那群朋友。對你來說，學習就像是一場大冒險，'
@@ -119,7 +119,7 @@ const Map<int, SoulInfo> soulConstant = {
       outlineColor: 0xffDEF8FC,
       soulNumber: 9,
       keyword: '智慧、靈性、完美',
-      crystal: '白水晶、蛋白石',
+      crystal: '白水晶',
       soulColor: '白色',
       soulCharacter: '靈魂數字 9 的人是普世的教師，靈魂使命是啟發和服務，不斷地將自己的見識'
           '和愛傳遞給世界。9 號人能夠在書店能夠花上整個下午挑選書籍，飽讀詩書的形象常常被視為'

@@ -58,8 +58,8 @@ class _GenerateResultScreenState extends State<GenerateResultScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isTablet = context.width < 768 && context.width >= 600;
-    bool isMobile = context.width < 600;
+    bool isTablet = context.width <= 1024 && context.width >= 450;
+    bool isMobile = context.width < 450;
     return ResultScreenScope(
         isMobile: isMobile,
         isTablet: isTablet,
@@ -103,7 +103,7 @@ class ResultInfoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: context.isMobile ? 24 : 40),
+        padding: EdgeInsets.symmetric(horizontal: context.isMobile ? 16 : 40),
         child: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: SingleChildScrollView(
@@ -134,7 +134,9 @@ class ResultInfoView extends StatelessWidget {
                 h24,
                 Text(
                   '特質為${info.soulInfo.keyword}的${info.name}，適合使用保障你資產和交易安全的 KryptoGO 錢包',
-                  style: context.themeExtension.headline1
+                  style: (context.isMobile
+                          ? context.themeExtension.bodyText1Bold
+                          : context.themeExtension.headline1)
                       .copyWith(color: context.themeExtension.secondary),
                 ),
                 h24,

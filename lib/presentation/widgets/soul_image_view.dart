@@ -4,6 +4,7 @@ import 'package:kg_meet_tpe/domain/generate_result_info.dart';
 import 'package:kg_meet_tpe/generated/assets.gen.dart';
 import 'package:kg_tools/kg_tools.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class SoulImageView extends StatelessWidget {
   final GenerateResultInfo info;
@@ -34,7 +35,7 @@ class SoulImageView extends StatelessWidget {
           children: [
             info.soulInfo.assetImage
                 .image(width: width, height: height, fit: BoxFit.cover),
-            Positioned(
+            Positioned.fill(
                 top: 0,
                 left: 0,
                 child: SizedBox(
@@ -43,7 +44,7 @@ class SoulImageView extends StatelessWidget {
                       info: info,
                       isPreview: isPreview,
                     ))),
-            Positioned(
+            Positioned.fill(
                 bottom: 0,
                 left: 0,
                 child: SizedBox(
@@ -70,31 +71,32 @@ class _ImageHeader extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           context.themeExtension.primary.withOpacity(0.5),
-          context.themeExtension.primary.withOpacity(0.5),
           Colors.transparent,
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Assets.logo.svg(height: isPreview ? 6 : 14, fit: BoxFit.fitHeight),
-          const Spacer(),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('生成你的Web3靈魂錢包 >> ',
+          Expanded(
+            child: Container(
+              alignment: Alignment.topRight,
+              child: AutoSizeText('生成你的Web3靈魂錢包 >> ',
+                  maxLines: 1,
+                  minFontSize: isPreview ? 2 : 5,
                   style: context.themeExtension.bodyText1Contrast
                       .copyWith(fontSize: isPreview ? 5 : 12)),
-              Container(
-                  color: Colors.white,
-                  padding: const EdgeInsets.all(2),
-                  child: QrImageView(
-                    padding: EdgeInsets.zero,
-                    data: 'https://soul-wallet.kryptogo.com',
-                    size: isPreview ? 24 : 36,
-                  ))
-            ],
-          )
+            ),
+          ),
+          Container(
+              color: Colors.white,
+              padding: const EdgeInsets.all(2),
+              child: QrImageView(
+                padding: EdgeInsets.zero,
+                data: 'https://soul-wallet.kryptogo.com',
+                size: isPreview ? 24 : 36,
+              ))
         ],
       ),
     );
@@ -119,10 +121,12 @@ class _ImageFooter extends StatelessWidget {
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text.rich(TextSpan(
                     text: info.name,
@@ -135,7 +139,9 @@ class _ImageFooter extends StatelessWidget {
                               .copyWith(fontSize: isPreview ? 5 : 12))
                     ])),
                 const SizedBox(height: 2),
-                Text(info.address.toFormattedAddress(),
+                AutoSizeText(info.formattedAddress,
+                    minFontSize: isPreview ? 3 : 12,
+                    maxLines: 1,
                     style: context.themeExtension.bodyText1Bold.copyWith(
                         color: context.themeExtension.secondary,
                         fontSize: isPreview ? 13 : 30)),
@@ -148,6 +154,7 @@ class _ImageFooter extends StatelessWidget {
           ),
           w4,
           Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text('掃描轉帳給我',
                   style: context.themeExtension.bodyText1Contrast
