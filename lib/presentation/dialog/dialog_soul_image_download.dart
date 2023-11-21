@@ -44,7 +44,7 @@ class SoulImageDownloadDialogState extends State<SoulImageDownloadDialog> {
             children: [
               KgButton(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                      const EdgeInsets.symmetric(horizontal: 24),
                   height: 48,
                   backgroundColor: Colors.white,
                   textStyle: context.themeExtension.bodyText1.copyWith(
@@ -57,7 +57,7 @@ class SoulImageDownloadDialogState extends State<SoulImageDownloadDialog> {
               w24,
               KgButton(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                      const EdgeInsets.symmetric(horizontal: 24),
                   height: 48,
                   backgroundColor: Colors.white,
                   textStyle: context.themeExtension.bodyText1.copyWith(

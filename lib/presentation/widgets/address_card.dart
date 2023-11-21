@@ -73,8 +73,7 @@ class AddressCard extends StatelessWidget {
               children: [
                 if (info.privateKey != null) ...[
                   KgButton(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 14),
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
                       textStyle: context.themeExtension.bodyText1Contrast
                           .copyWith(fontWeight: FontWeight.w600),
                       label: '複製私鑰',
@@ -86,8 +85,7 @@ class AddressCard extends StatelessWidget {
                 ],
                 if (context.isMobile && info.privateKey != null)
                   KgButton(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 14),
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     type: KgButtonType.primary,
                     backgroundColor: Colors.white,
                     textStyle: context.themeExtension.bodyText1.copyWith(
@@ -103,8 +101,7 @@ class AddressCard extends StatelessWidget {
                     },
                   ),
                 KgButton(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
                   backgroundColor: context.isMobile ? null : Colors.white,
                   type: context.isMobile
                       ? KgButtonType.outline
@@ -112,8 +109,7 @@ class AddressCard extends StatelessWidget {
                   width: context.isMobile ? double.infinity : null,
                   textStyle: context.themeExtension.bodyText1.copyWith(
                       color: context.colors.primary,
-                      fontWeight: FontWeight.w600,
-                      fontSize: context.isMobile ? 18 : 16),
+                      fontWeight: FontWeight.w600),
                   label: '下載/開啟 KryotoGO錢包',
                   onTap: () async {
                     window.open('https://kryptogo.page.link/wallet-tw',

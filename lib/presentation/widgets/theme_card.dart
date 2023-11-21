@@ -31,7 +31,7 @@ class ThemeCard extends StatelessWidget {
               ),
               h8,
               Text(
-                '我們還為靈魂色彩為${info.soulInfo.soulColor}的您，量身定制了 KryptoGO 錢包專屬主題，使用手機掃描 QR Code 立即套用。',
+                '我們還為靈魂色彩為${info.soulInfo.soulColor}的你，量身定制了 KryptoGO 錢包專屬主題，使用手機掃描 QR Code 立即套用。',
                 style: context.themeExtension.bodyText2Contrast,
               ),
             ],

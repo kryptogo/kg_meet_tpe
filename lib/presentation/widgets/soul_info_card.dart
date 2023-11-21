@@ -66,8 +66,7 @@ class SoulInfoCard extends StatelessWidget {
                 runSpacing: 16,
                 children: [
                   KgButton(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 14),
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
                       backgroundColor: Colors.white,
                       textStyle: context.themeExtension.bodyText1.copyWith(
                           color: context.colors.primary,
@@ -77,8 +76,7 @@ class SoulInfoCard extends StatelessWidget {
                         SoulImageDownloadDialog.show(context, info);
                       }),
                   KgButton(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 14),
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
                       textStyle: context.themeExtension.bodyText1Contrast
                           .copyWith(fontWeight: FontWeight.w600),
                       label: '隱藏私鑰分享我的結果',
@@ -88,12 +86,10 @@ class SoulInfoCard extends StatelessWidget {
                         showToast('複製成功');
                       }),
                   KgButton(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 14),
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
                       textStyle: context.themeExtension.bodyText1.copyWith(
                           color: context.colors.primary,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18),
+                          fontWeight: FontWeight.w600),
                       width: context.isMobile ? double.infinity : null,
                       type: KgButtonType.outline,
                       label: '邀請朋友尋找靈魂錢包',
